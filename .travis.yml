@@ -45,7 +45,7 @@ before_deploy:
 # requires travis repository settings variables (GIT_*)
 - git config --local user.name "$GIT_USER"
 - git config --local user.email "$GIT_EMAIL"
-- git tag "v${GIT_RELEASE_VERSION}.${TRAVIS_BUILD_NUMBER}"
+- git tag --force "v${GIT_RELEASE_VERSION}.${TRAVIS_BUILD_NUMBER}"
 - cd $CARTHAGE_PROJECT_DIR
 - carthage build --configuration $CONFIGURATION --cache-builds --no-skip-current #--platform $PLATFORM
 - carthage archive $FRAMEWORK_NAME
